@@ -1,0 +1,59 @@
+{
+  "name": "Forwardbot",
+  "description": "Forwardbot is a Telegram bot that forwards messages to a Telegram channel.",
+  "keywords": [
+    "telegram",
+    "bot",
+    "forward bot"
+  ],
+  "stack": "container",
+  "env": {
+    "API_ID": {
+      "description": "Telegram API ID",
+      "default": "",
+      "required": true
+    },
+    "API_HASH": {
+      "description": "Telegram API hash",
+      "default": "",
+      "required": true
+    },
+    "SESSION": {
+      "description": "String pyrogram",
+      "default": "",
+      "required": true
+    },
+    "CHANNEL_ASAL": {
+      "description": "Username channel asal",
+      "default": "",
+      "required": true
+    },
+    "CHANNEL_TUJUAN": {
+      "description": "Username channel tujuan",
+      "default": "",
+      "required": true
+    },
+    "PHOTO_URL": {
+      "description": "URL photo",
+      "default": "https://telegra.ph/file/e3a3518f862f0dd16fa33.jpg",
+      "required": false
+    },
+  },
+  "buildpacks": [
+    {
+      "url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest"
+    },
+    {
+      "url": "heroku/python"
+    },
+    {
+      "url": "https://github.com/verbit-ai/rtmpdump-buildpack.git"
+    }
+  ],
+  "formation": {
+    "worker": {
+      "quantity": 1,
+      "size": "free"
+    }
+  }
+}
